@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MvcdbModelStoreContainer" CdmEntityContainer="MvcdbEntities2">
+    <EntitySetMapping Name="tb1_cls">
+      <EntityTypeMapping TypeName="MvcdbModel.tb1_cls">
+        <MappingFragment StoreEntitySet="tb1_cls">
+          <ScalarProperty Name="cls_id" ColumnName="cls_id" />
+          <ScalarProperty Name="cls_name" ColumnName="cls_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb1_std">
+      <EntityTypeMapping TypeName="MvcdbModel.tb1_std">
+        <MappingFragment StoreEntitySet="tb1_std">
+          <ScalarProperty Name="std_id" ColumnName="std_id" />
+          <ScalarProperty Name="std_name" ColumnName="std_name" />
+          <ScalarProperty Name="std_add" ColumnName="std_add" />
+          <ScalarProperty Name="std_phn" ColumnName="std_phn" />
+          <ScalarProperty Name="std_clsid" ColumnName="std_clsid" />
+          <ScalarProperty Name="std_subid" ColumnName="std_subid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb1_sub">
+      <EntityTypeMapping TypeName="MvcdbModel.tb1_sub">
+        <MappingFragment StoreEntitySet="tb1_sub">
+          <ScalarProperty Name="sub_id" ColumnName="sub_id" />
+          <ScalarProperty Name="sub_one" ColumnName="sub_one" />
+          <ScalarProperty Name="sub_two" ColumnName="sub_two" />
+          <ScalarProperty Name="sub_three" ColumnName="sub_three" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

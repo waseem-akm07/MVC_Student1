@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MvcdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tb1_cls">
+    <Key>
+      <PropertyRef Name="cls_id" />
+    </Key>
+    <Property Name="cls_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cls_name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tb1_std">
+    <Key>
+      <PropertyRef Name="std_id" />
+    </Key>
+    <Property Name="std_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="std_name" Type="varchar" MaxLength="50" />
+    <Property Name="std_add" Type="varchar" MaxLength="50" />
+    <Property Name="std_phn" Type="varchar" MaxLength="50" />
+    <Property Name="std_clsid" Type="int" />
+    <Property Name="std_subid" Type="int" />
+  </EntityType>
+  <EntityType Name="tb1_sub">
+    <Key>
+      <PropertyRef Name="sub_id" />
+    </Key>
+    <Property Name="sub_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sub_one" Type="varchar" MaxLength="50" />
+    <Property Name="sub_two" Type="varchar" MaxLength="50" />
+    <Property Name="sub_three" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_tb1_std_tb1_cls">
+    <End Role="tb1_cls" Type="Self.tb1_cls" Multiplicity="0..1" />
+    <End Role="tb1_std" Type="Self.tb1_std" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb1_cls">
+        <PropertyRef Name="cls_id" />
+      </Principal>
+      <Dependent Role="tb1_std">
+        <PropertyRef Name="std_clsid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb1_std_tb1_sub">
+    <End Role="tb1_sub" Type="Self.tb1_sub" Multiplicity="0..1" />
+    <End Role="tb1_std" Type="Self.tb1_std" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb1_sub">
+        <PropertyRef Name="sub_id" />
+      </Principal>
+      <Dependent Role="tb1_std">
+        <PropertyRef Name="std_subid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MvcdbModelStoreContainer">
+    <EntitySet Name="tb1_cls" EntityType="Self.tb1_cls" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb1_std" EntityType="Self.tb1_std" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb1_sub" EntityType="Self.tb1_sub" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tb1_std_tb1_cls" Association="Self.FK_tb1_std_tb1_cls">
+      <End Role="tb1_cls" EntitySet="tb1_cls" />
+      <End Role="tb1_std" EntitySet="tb1_std" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb1_std_tb1_sub" Association="Self.FK_tb1_std_tb1_sub">
+      <End Role="tb1_sub" EntitySet="tb1_sub" />
+      <End Role="tb1_std" EntitySet="tb1_std" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

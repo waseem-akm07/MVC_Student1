@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Mvc1_student.Models.tb1_std>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index of Students</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.std_name)*@
+            Student Name
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.std_add)*@
+            Address
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.std_phn)*@
+            Phone
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.tb1_cls.cls_name)*@
+            Class Name
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.tb1_sub.sub_one)*@
+            Subjects Name
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.std_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.std_add)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.std_phn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb1_cls.cls_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb1_sub.sub_one) <span> </span> 
+            <span> </span>
+            @Html.DisplayFor(modelItem => item.tb1_sub.sub_two) <span> </span> 
+            <span> </span>
+            @Html.DisplayFor(modelItem => item.tb1_sub.sub_three)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.std_id }) |
+            @*@Html.ActionLink("Details", "Details", new { id=item.std_id }) |*@
+            @Html.ActionLink("Delete", "Delete", new { id=item.std_id })
+        </td>
+    </tr>
+}
+
+</table>
